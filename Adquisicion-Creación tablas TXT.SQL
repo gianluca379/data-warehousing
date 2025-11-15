@@ -1,14 +1,31 @@
--- TABLA TMP_Categories
-CREATE TABLE TMP_Categories (
-    categoryID INTEGER PRIMARY KEY,
+--Creación de tablas TXT
+CREATE TABLE TXT_Orders (
+    orderID TEXT,
+    customerID TEXT,
+    employeeID TEXT,
+    orderDate TEXT,
+    requiredDate TEXT,
+    shippedDate TEXT,
+    shipVia TEXT,
+    freight TEXT,
+    shipName TEXT,
+    shipAddress TEXT,
+    shipCity TEXT,
+    shipRegion TEXT,
+    shipPostalCode TEXT,
+    shipCountry TEXT
+);
+-- TABLA TXT_Categories
+CREATE TABLE TXT_Categories (
+    categoryID TEXT,
     categoryName TEXT,
     description TEXT,
     picture TEXT
 );
 
--- TABLA TMP_Customers
-CREATE TABLE TMP_Customers (
-    customerID TEXT PRIMARY KEY,
+-- TABLA TXT_Customers
+CREATE TABLE TXT_Customers (
+    customerID TEXT,
     companyName TEXT,
     contactName TEXT,
     contactTitle TEXT,
@@ -21,15 +38,15 @@ CREATE TABLE TMP_Customers (
     fax TEXT
 );
 
--- TABLA TMP_Employees
-CREATE TABLE TMP_Employees (
-    employeeID INTEGER PRIMARY KEY,
+-- TABLA TXT_Employees
+CREATE TABLE TXT_Employees (
+    employeeID TEXT,
     lastName TEXT,
     firstName TEXT,
     title TEXT,
     titleOfCourtesy TEXT,
-    birthDate TEXT, -- SQLite usa TEXT para fechas
-    hireDate TEXT,  -- SQLite usa TEXT para fechas
+    birthDate TEXT,
+    hireDate TEXT,
     address TEXT,
     city TEXT,
     region TEXT,
@@ -39,57 +56,55 @@ CREATE TABLE TMP_Employees (
     extension TEXT,
     photo TEXT,
     notes TEXT,
-    reportsTo INTEGER, -- Es una Clave Foránea (FK)
+    reportsTo TEXT,
     photoPath TEXT
 );
 
--- TABLA TMP_EmployeeTerritories (Clave Compuesta)
-CREATE TABLE TMP_EmployeeTerritories (
-    employeeID INTEGER,
-    territoryID TEXT,
-    PRIMARY KEY (employeeID, territoryID)
+-- TABLA TXT_EmployeeTerritories
+CREATE TABLE TXT_EmployeeTerritories (
+    employeeID TEXT,
+    territoryID TEXT
 );
 
--- TABLA TMP_Order_Details (Clave Compuesta)
-CREATE TABLE TMP_Order_Details (
-    orderID INTEGER,
-    productID INTEGER,
-    unitPrice REAL,
-    quantity INTEGER,
-    discount REAL,
-    PRIMARY KEY (orderID, productID)
+-- TABLA TXT_Order_Details
+CREATE TABLE TXT_Order_Details (
+    orderID TEXT,
+    productID TEXT,
+    unitPrice TEXT,
+    quantity TEXT,
+    discount TEXT
 );
 
--- TABLA TMP_Products
-CREATE TABLE TMP_Products (
-    productID INTEGER PRIMARY KEY,
+-- TABLA TXT_Products
+CREATE TABLE TXT_Products (
+    productID TEXT,
     productName TEXT,
-    supplierID INTEGER, -- FK
-    categoryID INTEGER, -- FK
+    supplierID TEXT,
+    categoryID TEXT,
     quantityPerUnit TEXT,
-    unitPrice REAL,
-    unitsInStock INTEGER,
-    unitsOnOrder INTEGER,
-    reorderLevel INTEGER,
-    discontinued INTEGER -- 0 o 1
+    unitPrice TEXT,
+    unitsInStock TEXT,
+    unitsOnOrder TEXT,
+    reorderLevel TEXT,
+    discontinued TEXT
 );
 
--- TABLA TMP_Regions
-CREATE TABLE TMP_Regions (
-    regionID INTEGER PRIMARY KEY,
+-- TABLA TXT_Regions
+CREATE TABLE TXT_Regions (
+    regionID TEXT,
     regionDescription TEXT
 );
 
--- TABLA TMP_Shippers
-CREATE TABLE TMP_Shippers (
-    shipperID INTEGER PRIMARY KEY,
+-- TABLA TXT_Shippers
+CREATE TABLE TXT_Shippers (
+    shipperID TEXT,
     companyName TEXT,
     phone TEXT
 );
 
--- TABLA TMP_Suppliers
-CREATE TABLE TMP_Suppliers (
-    supplierID INTEGER PRIMARY KEY,
+-- TABLA TXT_Suppliers
+CREATE TABLE TXT_Suppliers (
+    supplierID TEXT,
     companyName TEXT,
     contactName TEXT,
     contactTitle TEXT,
@@ -103,9 +118,9 @@ CREATE TABLE TMP_Suppliers (
     homePage TEXT
 );
 
--- TABLA TMP_Territories
-CREATE TABLE TMP_Territories (
-    territoryID TEXT PRIMARY KEY,
+-- TABLA TXT_Territories
+CREATE TABLE TXT_Territories (
+    territoryID TEXT,
     territoryDescription TEXT,
-    regionID INTEGER -- FK
+    regionID TEXT
 );
