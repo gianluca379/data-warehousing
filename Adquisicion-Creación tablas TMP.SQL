@@ -1,21 +1,5 @@
 -- TABLA TMP_Categories
 
-CREATE TABLE TXT_Orders (
-    orderID INTEGER KEY,
-    customerID TEXT,
-    employeeID INTEGER,
-    orderDate TEXT,
-    requiredDate TEXT,
-    shippedDate TEXT,
-    shipVia INTEGER,
-    freight INTEGER,
-    shipName TEXT,
-    shipAddress TEXT,
-    shipCity TEXT,
-    shipRegion TEXT,
-    shipPostalCode TEXT,
-    shipCountry TEXT
-);
 
 CREATE TABLE TMP_Categories (
     categoryID INTEGER PRIMARY KEY,
